@@ -66,7 +66,7 @@ namespace TestAdditionalChecks
         [TestMethod]
         public void TestMethodIsEmailAdress3()
         {
-            string str = "ales.kolpa@123";
+            string str = "ales.kolpa.@yandex.ru";
             Assert.IsFalse(str.IsEmailAdress());
         }
         [TestMethod]

@@ -32,7 +32,7 @@ namespace AdditionalСhecks
         /// <returns></returns>
         public static bool IsEmailAdress(this string str)
         {
-            return Regex.IsMatch(str, @"([\w]+)@([\w]{1,63}\.?[\w]{1,63})");
+            return Regex.IsMatch(str, @"(?!.*(\.)\1)^([\w-]{1}[\w\-\.]{0,63}[\w-]{1})@([\w]{1}[\w-]{0,62}[\w]?\.?[\w]?[\w-]{0,62}[\w]?)$");
         }
         /// <summary>
         /// Checks if the entered password is strong.
