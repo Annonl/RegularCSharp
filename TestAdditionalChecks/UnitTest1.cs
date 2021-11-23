@@ -28,6 +28,55 @@ namespace TestAdditionalChecks
             Assert.AreEqual("", result);
         }
         [TestMethod]
+        public void TestMethodGetTime4()
+        {
+            string str = "";
+            string result = str.GetTime();
+            Assert.AreEqual("", result);
+        }
+        [TestMethod]
+        public void TestMethodGetTime5()
+        {
+            string str = "Сегодня в 9:00 будет футбол.";
+            string result = str.GetTime();
+            Assert.AreEqual("", result);
+        }
+        [TestMethod]
+        public void TestMethodGetTime6()
+        {
+            string str = "37:98";
+            string result = str.GetTime();
+            Assert.AreEqual("", result);
+        }
+        [TestMethod]
+        public void TestMethodGetTime7()
+        {
+            string str = "абвгд:00";
+            string result = str.GetTime();
+            Assert.AreEqual("", result);
+        }
+        [TestMethod]
+        public void TestMethodGetTime8()
+        {
+            string str = "Занятия начинаются в 10:00.";
+            string result = str.GetTime();
+            Assert.AreEqual("10:00", result);
+        }
+        [TestMethod]
+        public void TestMethodGetTime9()
+        {
+            string str = "00:00";
+            string result = str.GetTime();
+            Assert.AreEqual("00:00", result);
+        }
+        [TestMethod]
+        public void TestMethodGetTime10()
+        {
+            string str ="Время 111::15 23:59";
+            string result = str.GetTime();
+            Assert.AreEqual("23:59", result);
+        }
+        [TestMethod]
         public void TestMethodIsMacAdress1()
         {
             string str = "aE:dC:cA:56:76:54";
@@ -42,13 +91,49 @@ namespace TestAdditionalChecks
         [TestMethod]
         public void TestMethodIsMacAdress3()
         {
-            string str = "01:23:45:67:89:Az";
+            string str = "01:23:45:6T:89:Az";
             Assert.IsFalse(str.IsMacAdress());
         }
         [TestMethod]
         public void TestMethodIsMacAdress4()
         {
+            string str = "This is Mac: 00:00:00:00:00:00";
+            Assert.IsFalse(str.IsMacAdress());
+        }
+        [TestMethod]
+        public void TestMethodIsMacAdress5()
+        {
+            string str = "aa:aa:aa:aa:aa:aa:aa:aa";
+            Assert.IsFalse(str.IsMacAdress());
+        }
+        [TestMethod]
+        public void TestMethodIsMacAdress6()
+        {
+            string str = "00:00:00:00:00:00:";
+            Assert.IsFalse(str.IsMacAdress());
+        }
+        [TestMethod]
+        public void TestMethodIsMacAdress7()
+        {
             string str = "00:00:00:00:00:00";
+            Assert.IsTrue(str.IsMacAdress());
+        }
+        [TestMethod]
+        public void TestMethodIsMacAdress8()
+        {
+            string str = "8A:D2:B4:EE:C2:EF";
+            Assert.IsTrue(str.IsMacAdress());
+        }
+        [TestMethod]
+        public void TestMethodIsMacAdress9()
+        {
+            string str = "8a:b5:1e:14:e6:68";
+            Assert.IsTrue(str.IsMacAdress());
+        }
+        [TestMethod]
+        public void TestMethodIsMacAdress10()
+        {
+            string str = "ff:ff:ff:ff:ff:ff";
             Assert.IsTrue(str.IsMacAdress());
         }
         [TestMethod]
@@ -94,6 +179,24 @@ namespace TestAdditionalChecks
             Assert.IsFalse(str.IsEmailAdress());
         }
         [TestMethod]
+        public void TestMethodIsEmailAdress8()
+        {
+            string str = "pidebi7127@mainctu.com";
+            Assert.IsTrue(str.IsEmailAdress());
+        }
+        [TestMethod]
+        public void TestMethodIsEmailAdress9()
+        {
+            string str = "elz00186@zwoho.com";
+            Assert.IsTrue(str.IsEmailAdress());
+        }
+        [TestMethod]
+        public void TestMethodIsEmailAdress10()
+        {
+            string str = "lebibe1703@jasmne.com";
+            Assert.IsTrue(str.IsEmailAdress());
+        }
+        [TestMethod]
         public void TestMethodIsStrongPassword1()
         {
             string str = "C00l_Pass";
@@ -129,6 +232,29 @@ namespace TestAdditionalChecks
             string str = "WeWe1234";
             Assert.IsTrue(str.IsStrongPassword());
         }
-
+        [TestMethod]
+        public void TestMethodIsStrongPassword7()
+        {
+            string str = "StrongPassword";
+            Assert.IsFalse(str.IsStrongPassword());
+        }
+        [TestMethod]
+        public void TestMethodIsStrongPassword8()
+        {
+            string str = "123456789";
+            Assert.IsFalse(str.IsStrongPassword());
+        }
+        [TestMethod]
+        public void TestMethodIsStrongPassword9()
+        {
+            string str = "1muVcjkEfy";
+            Assert.IsTrue(str.IsStrongPassword());
+        }
+        [TestMethod]
+        public void TestMethodIsStrongPassword10()
+        {
+            string str = "uS9bP3ey7XMWgUa6HZ0R2vlP";
+            Assert.IsTrue(str.IsStrongPassword());
+        }
     }
 }
